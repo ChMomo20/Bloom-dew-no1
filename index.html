@@ -80,11 +80,11 @@ img{display:block;max-width:100%}
 .step-card .en.d{font-size:15px;line-height:1.35;color:var(--ink-2);margin:0}
 
 /* Formulation */
-.bride-wrap{position:relative;margin:4px -16px -60px}
-.bride{width:100%}
+.bride-wrap{position:relative;margin:8px -16px -30px;padding-top:12px}
+.bride{width:72%;margin:0 auto;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent)}
 .bride-wrap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(transparent,var(--cream-2));pointer-events:none}
-.float-bottle{position:absolute;right:-48px;top:0;width:34%;transform:rotate(-8deg);animation:float 6s ease-in-out infinite}
-.float-bottle.b2{left:-60px;right:auto;top:auto;bottom:70px;width:26%;transform:rotate(30deg);animation-delay:-3s}
+.float-bottle{position:absolute;right:-26px;top:42%;width:26%;transform:rotate(-8deg);animation:float 6s ease-in-out infinite}
+.float-bottle.b2{left:-34px;right:auto;top:auto;bottom:60px;width:22%;transform:rotate(30deg);animation-delay:-3s}
 @keyframes float{50%{translate:0 -10px}}
 .ingr{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative}
 .ing{min-width:0;border:2px solid var(--gold);border-radius:6px;overflow:hidden;background:var(--ink);display:flex;flex-direction:column}
@@ -115,6 +115,14 @@ img{display:block;max-width:100%}
 .price{position:absolute;top:4%;right:2%;width:104px;height:104px;border-radius:50%;background:var(--ink);border:2px solid var(--gold);color:var(--gold-2);display:grid;place-content:center;line-height:1;box-shadow:0 8px 20px rgba(0,0,0,.25)}
 .price b{font-family:var(--en);font-size:40px;font-weight:600;font-variant-numeric:tabular-nums}
 .price span{font-size:20px;margin-top:6px}
+.launch{display:grid;gap:8px;text-align:center;background:rgba(255,250,236,.6);border:1.5px solid var(--gold);border-radius:10px;padding:16px 14px;margin-top:4px}
+.launch p{margin:0}
+.launch-tag{display:inline-block;justify-self:center;background:var(--ink);color:var(--gold-2);border-radius:999px;padding:5px 16px;font-size:18px;font-weight:700}
+.launch .ar{font-size:17px;line-height:1.75;color:var(--ink)}
+.launch .launch-tag{color:var(--gold-2)}
+.qty output{font-family:var(--ar)}
+.launch .launch-cta{font-weight:700;color:var(--brown);font-size:18px}
+.launch .en{font-size:15.5px;line-height:1.4;color:var(--ink-2)}
 .foot{text-align:center;padding:0 16px 34px;font-size:15px;color:var(--brown)}
 
 /* Sticky mini bar (appears after hero CTA leaves view) */
@@ -233,7 +241,7 @@ img{display:block;max-width:100%}
   <section class="sec" style="padding-top:44px">
     <div class="head wide"><span class="en">The Formulation<br>Nature’s Most Guarded Secrets</span><span class="ar">سرّ التركيبة حوار بين الطبيعة والفخامة</span></div>
     <div class="bride-wrap">
-      <img class="bride" src="bride.png" alt="Femme en caftan brodé tenant des fleurs d'oranger" loading="lazy">
+      <img class="bride" src="bride.webp" alt="Femme en caftan brodé tenant des fleurs d'oranger" loading="lazy">
       <img class="float-bottle" src="bottle.png" alt="" loading="lazy">
       <img class="float-bottle b2" src="bottle.png" alt="" loading="lazy">
     </div>
@@ -280,6 +288,13 @@ img{display:block;max-width:100%}
     <div class="tote-wrap">
       <img class="tote" src="tote.png" alt="Bloom Dew No.1 dans son sac cadeau At Thurayya" loading="lazy">
       <div class="price"><b>249</b><span>/ dh</span></div>
+    </div>
+    <div class="launch">
+      <p class="launch-tag ar">249 درهم — السعر الخاص بالإطلاق</p>
+      <p class="ar">احتفالاً بإطلاق أول دفعة، اخترنا أن نقدم المنتج بسعر خاص لفترة محدودة.</p>
+      <p class="ar">ومع نفاد الدفعة الأولى، سيتم اعتماد السعر الرسمي للمنتج.</p>
+      <p class="ar launch-cta">كوني من أول من يكتشفه 🤍</p>
+      <p class="en">To celebrate our very first batch, Bloom Dew No.1 is offered at a special launch price for a limited time. Once this first batch sells out, the official price will apply. Be among the first to discover it.</p>
     </div>
     <button class="cta" id="cta-bottom" type="button" data-order>
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
