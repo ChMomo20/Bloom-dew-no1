@@ -7,12 +7,12 @@
 <meta name="description" content="Bloom Dew No.1 Royal Mist by At Thurayya">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap">
 <style>
-/* Layout: single mobile column (max 480px), cream ground, black-and-gold plaques, CTA top + bottom. Single deliberate light look. */
+/* Layout: same section structure as the Night Balm page (badge hero, centred bilingual headings, full-width cards, acquisition box, form), in Bloom's daytime palette: cream ground, black plaques, brown-gold type. Single deliberate light look. */
 :root{
-  --cream:#fbefcf; --cream-2:#f6e3b4; --ink:#151310; --ink-2:#2a251d;
-  --gold:#c9a15a; --gold-2:#e2b96e; --brown:#8a5f22; --text:#2b2218;
+  --cream:#fbefcf; --cream-2:#f6e3b4; --card:#fff8e6; --line:rgba(138,95,34,.28);
+  --ink:#151310; --ink-2:#2a251d; --gold:#c9a15a; --gold-2:#e2b96e; --brown:#8a5f22; --text:#2b2218; --mute:#6b5a43;
   --ar:"Amiri","Traditional Arabic",serif;
   --en:"Cormorant Garamond","Garamond","Times New Roman",serif;
   color-scheme:light;
@@ -22,82 +22,89 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--text);font-family:var(--en);-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
 .page{max-width:480px;margin:0 auto;background:linear-gradient(180deg,var(--cream) 0%,var(--cream-2) 50%,var(--cream) 100%);overflow:hidden}
-.ar{font-family:var(--ar);direction:rtl}
-.en{font-family:var(--en)}
 img{display:block;max-width:100%}
+.ar{font-family:var(--ar);direction:rtl}
+.en{font-family:var(--en);direction:ltr}
+p{margin:0}
+
+/* Shared type */
+.badge{position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:2;white-space:nowrap;background:var(--ink);border:1px solid var(--gold);border-radius:999px;padding:5px 18px;color:#fff;font-size:15px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.h2{display:grid;gap:4px;text-align:center}
+.h2 .ar{font-size:27px;line-height:1.45;color:var(--ink);font-weight:700;text-wrap:balance}
+.h2 .en{font-size:22px;line-height:1.2;color:var(--brown);font-style:italic;font-weight:500;text-wrap:balance}
+.rule{width:56px;height:1px;background:var(--gold);margin:6px auto 0;position:relative}
+.rule::after{content:"";position:absolute;left:50%;top:-3px;width:7px;height:7px;background:var(--brown);transform:translateX(-50%) rotate(45deg)}
+.body-ar{font-size:18px;line-height:1.85;color:var(--ink);text-align:center}
+.body-en{font-size:17px;line-height:1.45;color:var(--mute);text-align:center}
+.sec{padding:84px 22px 0;display:grid;gap:28px}
 
 /* Hero */
 .hero{position:relative}
-.hero-img{width:100%;aspect-ratio:4/4.3;object-fit:cover;object-position:center 30%;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
-.ribbon{position:absolute;top:14px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:15px;padding:5px 18px;border-radius:4px;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.25)}
-.intro{padding:0 22px 8px;text-align:center;margin-top:-40px;position:relative;display:grid;gap:8px}
-.title{font-family:var(--en);font-weight:600;color:var(--brown);font-size:44px;line-height:1.05;margin:0;letter-spacing:.5px}
-.tag-ar{font-size:22px;margin:0;color:var(--ink)}
-.tag-en{font-size:22px;font-weight:600;margin:0;color:var(--ink-2)}
-.lead-ar{font-size:19px;line-height:1.75;margin:0;color:var(--ink)}
+.hero-img{width:100%;aspect-ratio:4/4.3;object-fit:cover;object-position:center 30%;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
+.hero-txt{position:relative;margin-top:-50px;padding:0 24px;display:grid;gap:16px;text-align:center}
+.title{font-family:var(--en);font-weight:600;color:var(--brown);font-size:46px;line-height:1.05;margin:0;letter-spacing:.5px}
+.tag-ar{font-size:24px;color:var(--ink);font-weight:700}
+.tag-en{font-size:22px;font-weight:600;color:var(--ink-2)}
 
-/* CTA */
-.cta{display:flex;align-items:center;justify-content:center;gap:14px;width:100%;margin:22px 0 4px;padding:14px 18px;border:2px solid var(--gold);border-radius:12px;background:linear-gradient(180deg,#2a2722,#0c0b09);color:#fff;cursor:pointer;box-shadow:0 10px 24px rgba(60,40,10,.28);font:inherit;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease;position:relative;overflow:hidden}
+/* CTA (Bloom keeps its black plaque button) */
+.cta{display:flex;align-items:center;justify-content:center;gap:14px;width:100%;margin:10px 0 0;padding:14px 18px;border:2px solid var(--gold);border-radius:12px;background:linear-gradient(180deg,#2a2722,#0c0b09);color:#fff;cursor:pointer;box-shadow:0 10px 24px rgba(60,40,10,.28);font:inherit;text-decoration:none;position:relative;overflow:hidden;transition:transform .15s ease}
 .cta:active{transform:scale(.98)}
 .cta:focus-visible{outline:3px solid var(--brown);outline-offset:3px}
 .cta::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(226,185,110,.25) 50%,transparent 70%);transform:translateX(-100%);animation:shine 3.2s ease-in-out infinite}
 @keyframes shine{60%,100%{transform:translateX(100%)}}
 .cta svg{flex:none;width:26px;height:26px;stroke:#fff}
-.cta-txt{display:grid;gap:0;text-align:center}
+.cta-txt{display:grid;text-align:center}
 .cta-ar{font-family:var(--ar);font-size:22px;font-weight:700;direction:rtl;line-height:1.3}
 .cta-ar b{font-family:var(--en);font-size:21px}
 .cta-en{font-family:var(--en);font-size:21px;color:#e9dcc2;line-height:1.1}
-.trust{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;font-size:14px;color:var(--brown);margin-top:8px}
+.cta[disabled]{opacity:.6;pointer-events:none}
+.claims{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.claims span{border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:15px;color:var(--brown);background:rgba(255,248,230,.6)}
 
-/* What is */
-.about{position:relative;margin-top:36px;min-height:520px}
+/* Full-bleed section image */
+.wide-img{width:calc(100% + 44px);max-width:none;margin:0 -22px;aspect-ratio:1/1.05;object-fit:cover;-webkit-mask-image:linear-gradient(transparent,#000 12%,#000 82%,transparent);mask-image:linear-gradient(transparent,#000 12%,#000 82%,transparent)}
+
+/* What is (overlay on photo, as in the first version) */
+.about{position:relative;margin-top:64px;min-height:560px}
 .about-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:20% center}
 .about::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,var(--cream) 0%,rgba(251,239,207,0) 18%),linear-gradient(270deg,rgba(18,12,4,.82) 0%,rgba(18,12,4,.55) 40%,rgba(18,12,4,0) 62%)}
-.about::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;z-index:1;background:linear-gradient(transparent,var(--cream))}
+.about::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;z-index:1;background:linear-gradient(transparent,var(--cream-2))}
 .about-body{position:relative;z-index:2;margin-left:auto;margin-right:0;width:58%;padding:90px 16px 140px 0;display:grid;gap:14px;justify-items:start}
 .plaque{background:var(--ink);color:#fff;border:1.5px solid var(--gold);border-radius:5px;padding:5px 12px;font-size:16px}
 .plaque b{font-family:var(--en)}
 .about p{margin:0;color:#fff;font-size:17px;line-height:1.85;text-align:justify;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.about p.about-en{direction:ltr;text-align:left;font-size:16.5px;line-height:1.4;color:#f3e7cf;font-family:var(--en);background:rgba(18,12,4,.6);padding:10px 12px;border-radius:6px;border:1px solid rgba(201,161,90,.5);text-shadow:none}
 
-/* Section header */
-.sec{padding:34px 16px 0;display:grid;gap:18px}
-.head{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--ink);border:2px solid var(--gold);border-radius:6px;padding:9px 16px;color:var(--gold-2);margin-inline:auto;width:fit-content;max-width:100%}
-.head .en{font-size:21px;font-weight:600;line-height:1.15}
-.head .ar{font-size:22px;color:var(--gold-2);line-height:1.4}
-.head.wide{width:100%}
+/* Ingredient cards (vertical, full width) */
+.ingr{display:grid;gap:28px}
+.ing{border:1.5px solid var(--gold);border-radius:14px;overflow:hidden;background:var(--ink);display:grid;color:#fff}
+.ing img{width:100%;aspect-ratio:16/11;object-fit:cover}
+.ing-body{padding:22px 20px 24px;display:grid;gap:12px}
+.ing-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.ing-top .n{font-family:var(--en);font-size:30px;color:var(--gold);line-height:1;font-weight:600}
+.ing-top .ar{font-size:21px;color:var(--gold-2);font-weight:700;text-align:right}
+.ing .en.t{font-size:18px;color:var(--gold-2);font-weight:600;letter-spacing:.02em}
+.ing .ar.d{font-size:17px;line-height:1.8}
+.ing .en.d{font-size:16.5px;line-height:1.4;color:#e4d9c3}
 
 /* Ritual */
-.step{display:grid;grid-template-columns:38% 1fr;gap:10px;align-items:stretch}
-.step.flip{grid-template-columns:1fr 38%}
-.step.flip .step-img{order:2}
-.step-img{width:100%;height:100%;min-height:150px;object-fit:cover;border:2px solid var(--gold);border-radius:6px}
-.step-card{min-width:0;border:2px solid var(--gold);border-radius:6px;padding:12px;display:grid;gap:6px;background:rgba(255,250,236,.55);align-content:start}
-.step-top{display:flex;align-items:center;gap:8px}
-.num{flex:none;width:28px;height:28px;border:1.5px dashed var(--gold);display:grid;place-items:center;color:var(--gold);font-size:18px;font-weight:600}
-.step-top .en{color:var(--gold);font-weight:700;font-size:17px;margin-inline-start:auto}
-.step-top .ar{color:var(--gold);font-size:17px}
-.step-card .ar.d{font-size:15.5px;line-height:1.6;color:var(--ink);margin:0}
-.step-card .en.d{font-size:15px;line-height:1.35;color:var(--ink-2);margin:0}
+.steps{display:grid;gap:24px}
+.step{display:grid;grid-template-columns:36% 1fr;gap:12px;align-items:stretch}
+.shot{width:100%;height:100%;min-height:170px;object-fit:cover;border-radius:12px;border:1.5px solid var(--gold)}
+.step-card{min-width:0;border:1.5px solid var(--gold);border-radius:12px;padding:16px 14px;display:grid;gap:9px;align-content:start;background:var(--card)}
+.step-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.step-top .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brown)}
+.step-top .ar{font-size:18px;color:var(--ink);font-weight:700}
+.step-card .en.t{font-size:17px;font-weight:600;color:var(--brown)}
+.step-card .ar.d{font-size:15.5px;line-height:1.7;color:var(--ink)}
+.step-card .en.d{font-size:15px;line-height:1.35;color:var(--mute)}
 
-/* Formulation */
-.bride-wrap{position:relative;margin:8px -16px -30px;padding-top:12px}
-.bride{width:72%;margin:0 auto;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent)}
-.bride-wrap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(transparent,var(--cream-2));pointer-events:none}
-.float-bottle{position:absolute;right:-26px;top:42%;width:26%;transform:rotate(-8deg);animation:float 6s ease-in-out infinite}
-.float-bottle.b2{left:-34px;right:auto;top:auto;bottom:60px;width:22%;transform:rotate(30deg);animation-delay:-3s}
-@keyframes float{50%{translate:0 -10px}}
-.ingr{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative}
-.ing{min-width:0;border:2px solid var(--gold);border-radius:6px;overflow:hidden;background:var(--ink);display:flex;flex-direction:column}
-.ing img{aspect-ratio:1/1.05;object-fit:cover;width:100%}
-.ing-body{padding:10px 10px 14px;display:grid;gap:6px;color:#fff;background:linear-gradient(180deg,#151310,#2b2722)}
-.ing-body .ar.t{color:var(--gold-2);text-align:center;font-size:16px;margin:0}
-.ing-body .en.t{color:var(--gold-2);text-align:center;font-size:15px;font-weight:600;margin:0;line-height:1.2}
-.ing-body .ar.d{font-size:14.5px;line-height:1.6;margin:4px 0 0}
-.ing-body .en.d{font-size:14.5px;line-height:1.3;margin:4px 0 0;color:#efe6d4}
-
-/* Benefits */
-.benefits{position:relative;display:grid;grid-template-columns:44% 1fr;align-items:center;margin:0 -16px;padding-inline-end:12px}
-.benefits .still{width:100%;height:100%;min-height:520px;object-fit:cover;object-position:28% center;-webkit-mask-image:linear-gradient(90deg,#000 70%,transparent),linear-gradient(transparent,#000 12%,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 70%,transparent);}
+/* Benefits (layout of the first version) */
+.head{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--ink);border:2px solid var(--gold);border-radius:6px;padding:9px 16px;color:var(--gold-2);width:100%}
+.head .en{font-size:21px;font-weight:600;line-height:1.15}
+.head .ar{font-size:22px;color:var(--gold-2);line-height:1.4}
+.benefits{position:relative;display:grid;grid-template-columns:44% 1fr;align-items:center;margin:0 -22px;padding-inline-end:12px}
+.benefits .still{width:100%;height:100%;min-height:520px;object-fit:cover;object-position:28% center;-webkit-mask-image:linear-gradient(90deg,#000 70%,transparent);mask-image:linear-gradient(90deg,#000 70%,transparent)}
 .ben-list{display:grid;gap:26px;justify-items:center;text-align:center;padding-block:20px;min-width:0}
 .ben{display:grid;gap:4px;justify-items:center}
 .ico{width:78px;height:78px;border-radius:50%;background:var(--ink);border:2px solid var(--gold);display:grid;place-items:center;margin-bottom:6px}
@@ -105,70 +112,45 @@ img{display:block;max-width:100%}
 .ben .ar{font-size:17px;color:var(--ink)}
 .ben .en{font-size:15.5px;color:var(--brown);font-weight:600;line-height:1.2}
 
-/* Offer */
-.offer{margin:30px 16px 40px;border:2px dashed var(--brown);border-radius:4px;padding:30px 18px 22px;text-align:center;display:grid;gap:12px}
-.offer .title{font-size:40px}
-.offer .ar.d{font-size:19px;line-height:1.75;margin:0;color:var(--ink)}
-.offer .en.d{font-size:19px;line-height:1.35;margin:0;color:var(--ink-2);font-weight:500}
-.tote-wrap{position:relative;margin-top:6px}
+/* Acquisition */
+.acq{margin:90px 16px 0;border:2px dashed var(--brown);border-radius:18px;padding:34px 0 30px;display:grid;gap:24px;scroll-margin-top:12px}
+.acq-in{padding:0 20px;display:grid;gap:22px}
+.tote-wrap{position:relative;margin:0 -6px}
 .tote{width:88%;margin:0 auto}
-.price{position:absolute;top:4%;right:2%;width:104px;height:104px;border-radius:50%;background:var(--ink);border:2px solid var(--gold);color:var(--gold-2);display:grid;place-content:center;line-height:1;box-shadow:0 8px 20px rgba(0,0,0,.25)}
-.price b{font-family:var(--en);font-size:40px;font-weight:600;font-variant-numeric:tabular-nums}
-.price span{font-size:20px;margin-top:6px}
-.launch{display:grid;gap:8px;text-align:center;background:rgba(255,250,236,.6);border:1.5px solid var(--gold);border-radius:10px;padding:16px 14px;margin-top:4px}
-.launch p{margin:0}
-.launch-tag{display:inline-block;justify-self:center;background:var(--ink);color:var(--gold-2);border-radius:999px;padding:5px 16px;font-size:18px;font-weight:700}
-.launch .ar{font-size:17px;line-height:1.75;color:var(--ink)}
-.launch .launch-tag{color:var(--gold-2)}
-.qty output{font-family:var(--ar)}
+.bubble{position:absolute;top:0;right:0;width:108px;height:108px;border-radius:50%;background:var(--ink);border:2px solid var(--gold);display:grid;place-content:center;text-align:center;line-height:1;box-shadow:0 8px 20px rgba(0,0,0,.25);animation:pop .6s cubic-bezier(.2,1.6,.4,1) both .2s}
+@keyframes pop{from{transform:scale(.4);opacity:0}}
+.bubble b{font-family:var(--en);font-size:42px;font-weight:600;color:var(--gold-2)}
+.bubble span{font-size:18px;color:var(--gold-2);margin-top:4px}
+.launch{display:grid;gap:8px;text-align:center;background:var(--card);border:1.5px solid var(--gold);border-radius:12px;padding:18px 16px}
+.launch-tag{justify-self:center;background:var(--ink);color:var(--gold-2);border-radius:999px;padding:5px 16px;font-size:18px;font-weight:700}
+.launch .ar.d{font-size:17px;line-height:1.75;color:var(--ink)}
 .launch .launch-cta{font-weight:700;color:var(--brown);font-size:18px}
-.launch .en{font-size:15.5px;line-height:1.4;color:var(--ink-2)}
-.foot{text-align:center;padding:0 16px 34px;font-size:15px;color:var(--brown)}
+.launch .en{font-size:15.5px;line-height:1.4;color:var(--mute)}
 
-/* Sticky mini bar (appears after hero CTA leaves view) */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(21,19,16,.94);backdrop-filter:blur(6px);border-top:1px solid var(--gold);display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:480px;margin:0 auto;transform:translateY(110%);transition:transform .3s ease}
-.bar.on{transform:none}
-.bar .p{color:var(--gold-2);font-size:20px;font-weight:600}
-.bar button{background:var(--gold);color:var(--ink);border:0;border-radius:8px;padding:10px 18px;font-family:var(--ar);font-size:17px;font-weight:700;cursor:pointer}
-
-/* Form fields */
-.f{display:grid;gap:4px}
-.f label{display:flex;justify-content:space-between;gap:8px;font-size:15px;color:var(--ink-2)}
-.f label .ar{font-size:16px}
-.f input,.f textarea{font:inherit;font-size:17px;padding:11px 12px;border:1.5px solid #d9c18d;border-radius:8px;background:#fffaf0;color:var(--ink);width:100%}
-.f input:focus,.f textarea:focus{outline:none;border-color:var(--brown);box-shadow:0 0 0 3px rgba(201,161,90,.3)}
-.f.bad input{border-color:#b3261e}
-.qty{display:flex;align-items:center;gap:10px}
-.qty button{width:42px;height:42px;border-radius:8px;border:1.5px solid var(--gold);background:var(--ink);color:var(--gold-2);font-size:22px;cursor:pointer}
-.qty output{min-width:30px;text-align:center;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
-.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed var(--brown);padding-top:10px;font-size:18px}
-.total b{font-size:26px;color:var(--brown);font-variant-numeric:tabular-nums}
-.note{font-size:14.5px;color:var(--ink-2);text-align:center;margin:0;line-height:1.5}
-.err{color:#b3261e;font-size:14px;text-align:center;margin:0}
-.done{text-align:center;display:grid;gap:10px;padding:10px 0}
-.done h3{margin:0;font-family:var(--ar);font-size:24px;color:var(--brown)}
-.done p{margin:0}
-.done a{color:var(--brown);font-weight:600}
-
-.about p.about-en{direction:ltr;text-align:left;background:rgba(18,12,4,.6);padding:10px 12px;border-radius:6px;border:1px solid rgba(201,161,90,.5);text-shadow:none;font-size:16.5px;line-height:1.4;color:#f3e7cf;font-family:var(--en)}
-
-/* Order form (Formspree) */
-.order{margin:0 16px 30px;background:var(--ink);border:2px solid var(--gold);border-radius:10px;padding:24px 18px;display:grid;gap:14px;color:#fff;scroll-margin-top:16px}
+/* Order form */
+.order{margin:32px 16px 40px;background:var(--ink);border:2px solid var(--gold);border-radius:18px;padding:28px 20px;display:grid;gap:18px;color:#fff;scroll-margin-top:12px}
 .order-h{text-align:center;display:grid;gap:2px}
-.order-h .ar{font-size:24px;color:var(--gold-2);margin:0}
-.order-h .en{font-size:20px;color:#e9dcc2;margin:0;font-weight:600}
-.order .f label{color:#e9dcc2}
-.order .f input,.order .f textarea{background:#fffaf0}
-.order .qty output{color:#fff}
-.order .total{border-top-color:var(--gold);color:#e9dcc2}
-.order .total b{color:var(--gold-2)}
+.order-h .ar{font-size:24px;color:var(--gold-2);font-weight:700}
+.order-h .en{font-size:18px;color:#e9dcc2;font-weight:600}
+.f{display:grid;gap:4px}
+.f label{display:flex;justify-content:space-between;gap:8px;font-size:15px;color:#e9dcc2}
+.f label .ar{font-size:16px}
+.f input{font:inherit;font-size:17px;padding:11px 12px;border:1.5px solid #d9c18d;border-radius:10px;background:#fffaf0;color:var(--ink);width:100%}
+.f input:focus{outline:none;border-color:var(--gold-2);box-shadow:0 0 0 3px rgba(226,185,110,.35)}
+.f.bad input{border-color:#e0675a}
+.qty{display:flex;align-items:center;gap:10px}
+.qty button{width:42px;height:42px;border-radius:10px;border:1.5px solid var(--gold);background:transparent;color:var(--gold-2);font-size:22px;cursor:pointer}
+.qty output{min-width:30px;text-align:center;font-size:22px;font-weight:600;font-family:var(--ar)}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed var(--gold);padding-top:10px;font-size:18px;color:#e9dcc2}
+.total b{font-size:26px;color:var(--gold-2)}
 .order .cta{background:linear-gradient(180deg,#e2b96e,#b98c45);color:var(--ink)}
 .order .cta .cta-en{color:var(--ink-2)}
-.order .note{color:#d9ccb2}
-.order .err{color:#ff8a80}
-.order .done h3{color:var(--gold-2)}
-.order .done p{color:#efe6d4;line-height:1.6}
-.cta[disabled]{opacity:.6;pointer-events:none}
+.note{font-size:14.5px;color:#d9ccb2;text-align:center;line-height:1.5}
+.err{color:#ff8a80;font-size:14px;text-align:center}
+.done{text-align:center;display:grid;gap:8px;padding:10px 0}
+.done .ar.t{font-size:24px;color:var(--gold-2);font-weight:700}
+.done p{color:#efe6d4;line-height:1.6}
+.foot{text-align:center;padding:0 16px 34px;font-size:14px;letter-spacing:.2em;color:var(--brown)}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 @media (min-width:481px){body{background:#e9dcbc}}
@@ -178,24 +160,24 @@ img{display:block;max-width:100%}
 
 <main class="page">
 
-  <!-- HERO -->
+  <!-- 1. HERO -->
   <section class="hero">
+    <div class="badge ar">الإصدار الملكي الأوّل • رذاذ الوجه المنعش</div>
     <img class="hero-img" src="hero.jpg" alt="Bloom Dew No.1 Royal Mist parmi les fleurs d'oranger">
-    <div class="ribbon ar">الإصدار الملكي الأوّل • رذاذ الوجه المنعش</div>
   </section>
-  <section class="intro">
+  <section class="hero-txt">
     <h1 class="title">Bloom Dew No.1</h1>
     <p class="tag-ar ar">قطرة ندى تُوقظ إشراقة بشرتكِ</p>
     <p class="tag-en">Awaken Your Skin’s Natural Radiance</p>
-    <p class="lead-ar ar">غمرة من مقطرات زهر البرتقال العريقة مع خلاصة نباتية سريّة لتهيئة البشرة وإنعاشها بلمسة حريرية.</p>
-    <button class="cta" id="cta-top" type="button" data-order>
+    <p class="body-ar ar">غمرة من مقطرات زهر البرتقال العريقة مع خلاصة نباتية سريّة لتهيئة البشرة وإنعاشها بلمسة حريرية.</p>
+    <button class="cta" id="cta-top" type="button" data-go="acquire">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
       <span class="cta-txt"><span class="cta-ar">اقتني <b>Bloom Dew No.1</b> الآن</span><span class="cta-en">Order now</span></span>
     </button>
-    <div class="trust ar"><span>100٪ طبيعي</span><span>•</span><span>100ml</span><span>•</span><span>لجميع أنواع البشرة</span></div>
+    <div class="claims"><span class="ar">100٪ طبيعي</span><span class="en">100ml</span><span class="ar">لجميع أنواع البشرة</span></div>
   </section>
 
-  <!-- WHAT IS -->
+  <!-- 2. WHAT IS -->
   <section class="about">
     <img class="about-img" src="about.jpg" alt="" loading="lazy">
     <div class="about-body ar">
@@ -205,71 +187,68 @@ img{display:block;max-width:100%}
     </div>
   </section>
 
-  <!-- RITUAL -->
+  <!-- 3. FORMULATION -->
   <section class="sec">
-    <div class="head"><span class="en">The Daily Ritual</span><span class="ar">طقس العناية اليومي</span></div>
-
-    <div class="step">
-      <img class="step-img" src="purify.jpg" alt="Nettoyage du visage" loading="lazy">
-      <div class="step-card">
-        <div class="step-top"><span class="num">1</span><span class="en">Purify</span><span class="ar">التطهير</span></div>
-        <p class="ar d">ابدئي بتنظيف الوجه بعناية وتجفيفه بلطف.</p>
-        <p class="en d">Cleanse and gently pat dry your face and neck.</p>
-      </div>
-    </div>
-
-    <div class="step flip">
-      <img class="step-img" src="mist.jpg" alt="Vaporisation de Bloom Dew" loading="lazy">
-      <div class="step-card">
-        <div class="step-top"><span class="num">2</span><span class="en">Mist</span><span class="ar">الرذاذ الملكي</span></div>
-        <p class="ar d">رشّي رذاذ <b class="en">Bloom Dew</b> على مسافة خفيفة ليغمر الوجه والعنق بسحابة نقية ومنعشة.</p>
-        <p class="en d">Hold the bottle gently and mist over face and neck in a fine, refreshing veil.</p>
-      </div>
-    </div>
-
-    <div class="step">
-      <img class="step-img" src="absorb.jpg" alt="Absorption" loading="lazy">
-      <div class="step-card">
-        <div class="step-top"><span class="num">3</span><span class="en">Absorb</span><span class="ar">الامتصاص</span></div>
-        <p class="ar d">دعي القطرات تتغلغل في مسامكِ طبيعياً لتهيئة خلايا البشرة لخطوات العناية التالية.</p>
-        <p class="en d">Let it absorb naturally to lock in botanical hydration and prep the skin for your next step.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORMULATION -->
-  <section class="sec" style="padding-top:44px">
-    <div class="head wide"><span class="en">The Formulation<br>Nature’s Most Guarded Secrets</span><span class="ar">سرّ التركيبة حوار بين الطبيعة والفخامة</span></div>
-    <div class="bride-wrap">
-      <img class="bride" src="bride.webp" alt="Femme en caftan brodé tenant des fleurs d'oranger" loading="lazy">
-      <img class="float-bottle" src="bottle.png" alt="" loading="lazy">
-      <img class="float-bottle b2" src="bottle.png" alt="" loading="lazy">
-    </div>
+    <div class="h2"><p class="ar">سرّ التركيبة حوار بين الطبيعة والفخامة</p><p class="en">The Formulation · Nature’s Most Guarded Secrets</p><div class="rule"></div></div>
     <div class="ingr">
       <article class="ing">
-        <img src="leaves.jpg" alt="Feuilles botaniques et gouttes de rosée" loading="lazy">
+        <img src="blossom.jpg" alt="Fleur d'oranger perlée de rosée" loading="lazy">
         <div class="ing-body">
-          <p class="ar t">المكوّن النباتي الخاص</p>
-          <p class="en t">The Signature Botanical Secret</p>
-          <p class="ar d">خلاصة نباتية نادرة تحتفظ بها كسرّ إشراقة الدار، تعمل بتناغم لتجديد حيوية البشرة وحمايتها.</p>
-          <p class="en d">A proprietary plant extract kept exclusive to At Thurayya to revitalize and restore youthful bounce.</p>
-        </div>
-      </article>
-      <article class="ing">
-        <img src="blossom.jpg" alt="Fleur d'oranger" loading="lazy">
-        <div class="ing-body">
-          <p class="ar t">قطر زهر البرتقال النقي</p>
+          <div class="ing-top"><span class="n">I</span><span class="ar">قطر زهر البرتقال النقي</span></div>
           <p class="en t">Pure Orange Blossom Hydrosol</p>
           <p class="ar d">يهدئ البشرة الحساسة، ينعش الأنسجة، ويمنح نضارة حيوية بعبير زهري ناعم وراقٍ.</p>
           <p class="en d">Renowned for its calming, toning, and balancing properties, leaving a delicate floral veil.</p>
         </div>
       </article>
+      <article class="ing">
+        <img src="leaves.jpg" alt="Feuilles botaniques et gouttes de rosée" loading="lazy">
+        <div class="ing-body">
+          <div class="ing-top"><span class="n">II</span><span class="ar">المكوّن النباتي الخاص</span></div>
+          <p class="en t">The Signature Botanical Secret</p>
+          <p class="ar d">خلاصة نباتية نادرة تحتفظ بها كسرّ إشراقة الدار، تعمل بتناغم لتجديد حيوية البشرة وحمايتها.</p>
+          <p class="en d">A proprietary plant extract kept exclusive to At Thurayya to revitalize and restore youthful bounce.</p>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- BENEFITS -->
-  <section class="sec" style="padding-top:50px">
-    <div class="head wide"><span class="en">Elevated Skin Benefits</span><span class="ar">منافع استثنائية لبشرتكِ</span></div>
+  <!-- 4. RITUAL -->
+  <section class="sec">
+    <div class="h2"><p class="ar">طقس العناية اليومي</p><p class="en">The Daily Ritual</p><div class="rule"></div></div>
+    <div class="steps">
+      <div class="step">
+        <img class="shot" src="purify.jpg" alt="Nettoyage du visage" loading="lazy">
+        <div class="step-card">
+          <div class="step-top"><span class="k">Step 1</span><span class="ar">التطهير</span></div>
+          <p class="en t">Purify</p>
+          <p class="ar d">ابدئي بتنظيف الوجه بعناية وتجفيفه بلطف.</p>
+          <p class="en d">Cleanse and gently pat dry your face and neck.</p>
+        </div>
+      </div>
+      <div class="step">
+        <img class="shot" src="mist.jpg" alt="Vaporisation de Bloom Dew" loading="lazy">
+        <div class="step-card">
+          <div class="step-top"><span class="k">Step 2</span><span class="ar">الرذاذ الملكي</span></div>
+          <p class="en t">Mist</p>
+          <p class="ar d">رشّي رذاذ <b class="en">Bloom Dew</b> على مسافة خفيفة ليغمر الوجه والعنق بسحابة نقية ومنعشة.</p>
+          <p class="en d">Hold the bottle gently and mist over face and neck in a fine, refreshing veil.</p>
+        </div>
+      </div>
+      <div class="step">
+        <img class="shot" src="absorb.jpg" alt="Absorption" loading="lazy">
+        <div class="step-card">
+          <div class="step-top"><span class="k">Step 3</span><span class="ar">الامتصاص</span></div>
+          <p class="en t">Absorb</p>
+          <p class="ar d">دعي القطرات تتغلغل في مسامكِ طبيعياً لتهيئة خلايا البشرة لخطوات العناية التالية.</p>
+          <p class="en d">Let it absorb naturally to lock in botanical hydration and prep the skin for your next step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. BENEFITS -->
+  <section class="sec">
+    <div class="head"><span class="en">Elevated Skin Benefits</span><span class="ar">منافع استثنائية لبشرتكِ</span></div>
     <div class="benefits">
       <img class="still" src="still.jpg" alt="" loading="lazy">
       <div class="ben-list">
@@ -280,26 +259,28 @@ img{display:block;max-width:100%}
     </div>
   </section>
 
-  <!-- OFFER -->
-  <section class="offer" id="offer">
-    <h2 class="title">Bloom Dew No.1</h2>
-    <p class="ar d">لمسة نقية من مقطر زهر البرتقال والخلاصة النباتية الخاصة تمنح بشرتكِ ترطيباً حريرياً وتهيئة مثالية.</p>
-    <p class="en d">A refined veil of orange blossom hydrosol and secret botanical extracts, designed to deeply tone, hydrate, and prime your skin.</p>
-    <div class="tote-wrap">
-      <img class="tote" src="tote.png" alt="Bloom Dew No.1 dans son sac cadeau At Thurayya" loading="lazy">
-      <div class="price"><b>249</b><span>/ dh</span></div>
+  <!-- 6. ACQUISITION -->
+  <section class="acq" id="acquire">
+    <div class="acq-in">
+      <h2 class="title" style="text-align:center;font-size:42px">Bloom Dew No.1</h2>
+      <p class="body-ar ar">لمسة نقية من مقطر زهر البرتقال والخلاصة النباتية الخاصة تمنح بشرتكِ ترطيباً حريرياً وتهيئة مثالية.</p>
+      <p class="body-en">A refined veil of orange blossom hydrosol and secret botanical extracts, designed to deeply tone, hydrate, and prime your skin.</p>
+      <div class="tote-wrap">
+        <img class="tote" src="tote.png" alt="Bloom Dew No.1 dans son sac cadeau At Thurayya" loading="lazy">
+        <div class="bubble"><b>249</b><span>/ dh</span></div>
+      </div>
+      <div class="launch">
+        <p class="launch-tag ar">249 درهم — السعر الخاص بالإطلاق</p>
+        <p class="ar d">احتفالاً بإطلاق أول دفعة، اخترنا أن نقدم المنتج بسعر خاص لفترة محدودة.</p>
+        <p class="ar d">ومع نفاد الدفعة الأولى، سيتم اعتماد السعر الرسمي للمنتج.</p>
+        <p class="ar launch-cta">كوني من أول من يكتشفه 🤍</p>
+        <p class="en">To celebrate our very first batch, Bloom Dew No.1 is offered at a special launch price for a limited time. Once this first batch sells out, the official price will apply. Be among the first to discover it.</p>
+      </div>
+      <button class="cta" id="cta-bottom" type="button" data-go="commande">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cta-txt"><span class="cta-ar">اقتني <b>Bloom Dew No.1</b> الآن</span><span class="cta-en">Order now</span></span>
+      </button>
     </div>
-    <div class="launch">
-      <p class="launch-tag ar">249 درهم — السعر الخاص بالإطلاق</p>
-      <p class="ar">احتفالاً بإطلاق أول دفعة، اخترنا أن نقدم المنتج بسعر خاص لفترة محدودة.</p>
-      <p class="ar">ومع نفاد الدفعة الأولى، سيتم اعتماد السعر الرسمي للمنتج.</p>
-      <p class="ar launch-cta">كوني من أول من يكتشفه 🤍</p>
-      <p class="en">To celebrate our very first batch, Bloom Dew No.1 is offered at a special launch price for a limited time. Once this first batch sells out, the official price will apply. Be among the first to discover it.</p>
-    </div>
-    <button class="cta" id="cta-bottom" type="button" data-order>
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-      <span class="cta-txt"><span class="cta-ar">اقتني <b>Bloom Dew No.1</b> الآن</span><span class="cta-en">Order now</span></span>
-    </button>
   </section>
 
   <!-- ORDER FORM (Formspree) -->
@@ -320,35 +301,35 @@ img{display:block;max-width:100%}
         <div class="total"><span class="ar">المجموع / Total</span><b id="tot">249 dh</b></div>
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
         <p class="err" id="err" hidden></p>
-        <button class="cta" type="submit" id="send" style="margin:4px 0 0">
+        <button class="cta" type="submit" id="send">
           <span class="cta-txt"><span class="cta-ar">تأكيد الطلب</span><span class="cta-en">Confirm order</span></span>
         </button>
-        <p class="note ar">سنتواصل معكِ هاتفياً لتأكيد الطلب والتوصيل.<span class="en" style="display:block;direction:ltr">We will call you to confirm your order and delivery.</span></p>
+        <p class="note"><span class="ar" style="display:block">سنتواصل معكِ هاتفياً لتأكيد الطلب والتوصيل.</span>We will call you to confirm your order and delivery.</p>
       </div>
     </form>
     <div class="done" id="done" hidden>
-      <h3 class="ar">شكراً لكِ ✦ Thank you</h3>
+      <p class="ar t">شكراً لكِ ✦ Thank you</p>
       <p class="ar">تم استلام طلبكِ بنجاح. سنتصل بكِ قريباً لتأكيده.</p>
       <p class="en">Your order has been received. We will call you shortly to confirm it.</p>
     </div>
   </section>
 
-  <p class="foot en">© At Thurayya</p>
+  <p class="foot">AT THURAYYA</p>
 </main>
 
 <script>
 (function(){
-  // Formspree : remplace YOUR_FORM_ID par l'identifiant de ton formulaire (formspree.io/f/xxxxxxx)
   var FORMSPREE_ID = "xljgnwvl";
   var PRICE = 249, qty = 1;
   var $ = function(id){return document.getElementById(id)};
   var form = $("form"), err = $("err");
 
-  // Les deux CTA descendent jusqu'au formulaire
-  document.querySelectorAll("[data-order]").forEach(function(b){
+  // CTA du haut -> bloc achat ; CTA du bloc achat -> formulaire
+  document.querySelectorAll("[data-go]").forEach(function(b){
     b.addEventListener("click", function(){
-      $("commande").scrollIntoView({behavior:"smooth", block:"start"});
-      setTimeout(function(){ $("name").focus({preventScroll:true}); }, 600);
+      var id = b.getAttribute("data-go");
+      $(id).scrollIntoView({behavior:"smooth", block:"start"});
+      if(id === "commande") setTimeout(function(){ $("name").focus({preventScroll:true}); }, 600);
     });
   });
 
